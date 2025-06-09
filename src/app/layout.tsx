@@ -1,4 +1,3 @@
-import { title } from "process";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
@@ -16,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="inter.className">
+      <body >
         <Navbar />
         {children}
         <Footer />
