@@ -1,12 +1,6 @@
 import React from "react";
 
-interface Props {
-  params: {
-    slug: string;
-  };
-}
-
-export default function SinglePage({ params }: Props) {
+export default async function SinglePage({ params }: { params: { slug: string } }) {
   const { slug } = params;
 
   return (
