@@ -12,7 +12,7 @@ export default function Navbar() {
             <div className="h-full flex items-center justify-between md:hidden
             ">
                 <Link href='/'>
-                    <div className="text-2xl tracking-wide font-medium">Flow<span>Media</span></div></Link>
+                    <div className="text-2xl tracking-wide font-medium bg-gradient-to-r from-[#f5385e] to-[#0f0] bg-clip-text text-transparent">Flow Media</div></Link>
                 <Menu />
             </div>
             {/* BIGGER SCREEN */}
