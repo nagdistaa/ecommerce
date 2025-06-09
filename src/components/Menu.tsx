@@ -15,8 +15,9 @@ export default function Menu() {
             <Image src='/menu.png' alt='menu icon' width={28} height={28} className='cursor-pointer' onClick={handleClick} />
 
             {open && (<div className='absolute left-0 top-20 w-full h-[100vh] bg-black text-white flex flex-col justify-center items-center gap-8 text-xl z-10 '>
-                {navLinks.map((ele) => (
-                    <Link href={ele.href}>{ele.title}</Link>
+                {navLinks.map((ele, idx) => (
+                    <Link href={ele.href}
+                        key={idx}>{ele.title}</Link>
                 ))}
             </div>)}
         </div>
