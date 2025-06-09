@@ -12,7 +12,7 @@ export default function Navbar() {
             <div className="h-full flex items-center justify-between md:hidden 
             ">
                 <Link href='/'>
-                    <div className="text-2xl tracking-wide font-medium bg-gradient-to-r from-[#f5385e] to-[#0f0] bg-clip-text text-transparent">Flow Media</div></Link>
+                    <div className="text-2xl tracking-wide font-medium from-[##422067] via-[##e93c25] to-[##217ac1] bg-clip-text text-transparent">Flow Media</div></Link>
                 <Menu />
             </div>
             {/* BIGGER SCREEN */}
@@ -21,7 +21,7 @@ export default function Navbar() {
                 <div className="w-1/2 ">
                     <Link href='/' className='flex items-center gap-3'>
                         <Image src='/logo.png' height={24} width={24} alt='logo' />
-                        <div className="text-2xl tracking-wide font-medium  bg-gradient-to-r from-[#07d807cb] to-[#f35c7a] bg-clip-text text-transparent">Flow Media</div></Link>
+                        <div className="text-2xl tracking-wide font-medium  bg-gradient-to-r from-[##422067] via-[##e93c25] to-[##217ac1] bg-clip-text text-transparent">Flow Media</div></Link>
                 </div>
                 {/* RIGHT */}
                 <div className="w-2/3 flex justify-between items-center gap-8  ">
