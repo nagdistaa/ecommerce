@@ -49,13 +49,19 @@ const slides = [
 export default function Slider() {
   const [current, setCurrent] = useState(0);
 
- 
+  // تغيير السلايد كل 4 ثواني
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="h-[calc(100vh-80px)] overflow-hidden relative">
       <div
         className="flex h-full transition-transform duration-1000 ease-in-out"
-       
+        style={{ transform: `translateX(-${current * 100}vw)` }}
       >
         {slides.map((slide) => (
           <div
