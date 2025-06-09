@@ -2,9 +2,12 @@ import { title } from "process";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
-export const metadata ={
-  title : 'Flow Media',
-  discription : "Shopping Clothes"
+export const metadata = {
+  title: 'Flow Media',
+  discription: "Shopping Clothes",
+  icons: {
+    icon: "/favIcon.ico",
+  },
 }
 export default function RootLayout({
   children,
@@ -13,11 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link rel="icon" href="/favIcon"/>
       <body className="inter.className">
-       <Navbar/>
+        <Navbar />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

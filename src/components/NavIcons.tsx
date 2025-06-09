@@ -18,6 +18,8 @@ export default function NavIcons() {
       return 0;
     }
     setIsProfileOpen((prevStaus) => (!prevStaus))
+
+
   }
   function handleOpenCart() {
     setIsCartOpen((prevStaus) => (!prevStaus))
