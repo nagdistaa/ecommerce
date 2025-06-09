@@ -17,11 +17,18 @@ export default function NavIcons() {
       router.push('/login')
       return 0;
     }
+
+    if(isCartOpen){
+      setIsCartOpen(false)
+    }
     setIsProfileOpen((prevStaus) => (!prevStaus))
 
-
+    
   }
   function handleOpenCart() {
+    if(isProfileOpen){
+      setIsProfileOpen(false)
+    }
     setIsCartOpen((prevStaus) => (!prevStaus))
   }
   return (
