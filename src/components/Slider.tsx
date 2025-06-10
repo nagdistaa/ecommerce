@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const slides = [
   {
@@ -49,50 +49,73 @@ const slides = [
 export default function Slider() {
   const [current, setCurrent] = useState(0);
 
-  // تغيير السلايد كل 4 ثواني
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
+  function handleDotClick(index: number) {
+    setCurrent(index);
+  }
+
+  useEffect(()=>{
+    const interval = setInterval(() => {
+      setCurrent(prev=>(prev===slides.length - 1 ?0 : prev +1))
+    }, 5000);
+
+    return () =>clearInterval(interval)
+  },[])
 
   return (
     <div className="h-[calc(100vh-80px)] overflow-hidden relative">
+      {/* Container OF TEXT AND IMAGE */}
       <div
-        className="flex h-full transition-transform duration-1000 ease-in-out"
+        className="w-max h-full flex transition-transform duration-1000 ease-in-out"
         style={{ transform: `translateX(-${current * 100}vw)` }}
       >
         {slides.map((slide) => (
           <div
             key={slide.id}
-            className={`${slide.bg} w-screen h-full flex flex-col xl:flex-row items-center gap-8 px-8`}
+            className={`${slide.bg} w-screen h-full flex flex-col xl:flex-row gap-16`}
           >
-            {/* نصوص السلايد */}
-            <div className="xl:w-1/2 flex flex-col justify-center h-full">
-              <h2 className="text-lg mb-4">{slide.description}</h2>
-              <h1 className="text-4xl font-bold mb-6">{slide.title}</h1>
+            {/* TEXT SLIDE */}
+            <div className="xl:w-1/2 h-1/2 flex flex-col items-center justify-center gap-8 2xl:gap-12 text-center xl:h-full">
+              <h2 className="text-xl lg:text-3xl 2xl:text-5xl">{slide.description}</h2>
+              <h1 className="text-5xl lg:text-6xl 2xl:text-8xl">{slide.title}</h1>
               <Link href={slide.url}>
-                <button className="px-6 py-3 bg-pink-500 text-white rounded-md hover:bg-pink-600 transition">
+                <button className="rounded-md bg-black text-white py-3 px-4">
                   Shop Now
                 </button>
               </Link>
             </div>
-
-            {/* صورة السلايد */}
-            <div className="xl:w-1/2 relative h-[60vh] w-full rounded-md overflow-hidden">
+            {/* IMAGE CONTAINER */}
+            <div className="xl:w-1/2 h-1/2 relative xl:h-full">
               <Image
                 src={slide.img}
                 alt={slide.title}
                 fill
-                sizes="100vw"
+                sizes="100%"
                 className="object-cover"
-                priority={slide.id === 1} // تخلي أول صورة تتحمل بسرعة
               />
             </div>
           </div>
         ))}
       </div>
+      {/* END Container OF TEXT AND IMAGE */}
+
+      {/* CONTAINER OF DOTS */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-4">
+        {slides.map((slide, idx) => (
+          <div
+            key={slide.id}
+            className={`w-3 h-3 rounded-full ring-1 ring-gray-600 cursor-pointer flex items-center justify-center ${
+              current === idx ? "scale-150" : ""
+            }`}
+            onClick={() => handleDotClick(idx)}
+            aria-label={`Go to slide ${idx + 1}`}
+          >
+            {current === idx && (
+              <div className="w-[6px] h-[6px] rounded-full bg-gray-600"></div>
+            )}
+          </div>
+        ))}
+      </div>
+      {/* END CONTAINER OF DOTS */}
     </div>
   );
 }
