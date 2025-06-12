@@ -7,9 +7,9 @@ export default async function SinglePage() {
   return (
     <div className="px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 py-12">
       <div className="flex flex-col lg:flex-row gap-16">
-        
+
         {/* IMG CONTAINER */}
-        <div className="w-full lg:w-1/2 sticky top-24 self-start h-max">
+        <div className="w-full lg:w-1/2 lg:sticky lg:top-24 h-max">
           <ProductImages />
         </div>
 
@@ -32,13 +32,7 @@ export default async function SinglePage() {
           <Add />
           <div className="h-[1px] bg-gray-200 my-2" />
 
-          {/* محتوى إضافي علشان sticky يظهر أثناء السكروول */}
-          {[...Array(10)].map((_, i) => (
-            <div key={i} className="text-sm">
-              <h4 className="font-medium mb-2">More Info {i + 1}</h4>
-              <p className="text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium voluptatibus illum, fugiat eum laborum quae.</p>
-            </div>
-          ))}
+
         </div>
       </div>
     </div>
