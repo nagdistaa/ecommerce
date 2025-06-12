@@ -3,13 +3,13 @@ import CustomizeProducts from "@/components/CustomizeProducts";
 import ProductImages from "@/components/ProductImages";
 import React from "react";
 
-export default async function SinglePage() {
+function SinglePage() {
   return (
-    <div className="px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 py-12">
+    <div className="px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 py-12 min-h-screen">
       <div className="flex flex-col lg:flex-row gap-16">
-        
+
         {/* IMG CONTAINER */}
-        <div className="w-full lg:w-1/2 sticky top-24 self-start h-max">
+        <div className="w-full lg:w-1/2 lg:sticky top-24 self-start h-max">
           <ProductImages />
         </div>
 
@@ -28,19 +28,37 @@ export default async function SinglePage() {
           </div>
 
           <div className="h-[1px] bg-gray-200 my-2" />
+          
           <CustomizeProducts />
           <Add />
+          
           <div className="h-[1px] bg-gray-200 my-2" />
 
-          {/* محتوى إضافي علشان sticky يظهر أثناء السكروول */}
-          {[...Array(10)].map((_, i) => (
-            <div key={i} className="text-sm">
-              <h4 className="font-medium mb-2">More Info {i + 1}</h4>
-              <p className="text-gray-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium voluptatibus illum, fugiat eum laborum quae.</p>
+          <div className="text-sm space-y-6">
+            <div>
+              <h4 className="font-medium mb-2">Description</h4>
+              <p className="text-gray-500">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium voluptatibus illum, fugiat eum laborum quae.
+              </p>
             </div>
-          ))}
+            <div>
+              <h4 className="font-medium mb-2">Details</h4>
+              <p className="text-gray-500">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium voluptatibus illum, fugiat eum laborum quae.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium mb-2">Shipping</h4>
+              <p className="text-gray-500">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium voluptatibus illum, fugiat eum laborum quae.
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   );
 }
+
+export default SinglePage;

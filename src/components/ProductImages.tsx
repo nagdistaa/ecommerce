@@ -24,7 +24,7 @@ export default function ProductImages() {
         />
       </div>
 
-      <div className="flex gap-4 mt-4">
+      <div className="flex gap-4 mt-4 flex-wrap">
         {imgs.map((img, idx) => (
           <div
             key={idx}
