@@ -1,12 +1,13 @@
-import Navbar from "../components/Navbar";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import './globals.css'
 
 export const metadata = {
   title: 'Flow Media',
-  discription: "Shopping Clothes",
-  icons: {
-    icon: "/favIcon.ico",
-  },
-}
+  description: "Shopping Clothes",
+  
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -14,16 +15,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <meta name="google-site-verification" content="d3TYP1izoOGukbIpQwHpFOSQyS0Qr2CIG_MD6ij4m_w" />
-      </head>
-      <body >
+      <body className="min-h-screen flex flex-col justify-between bg-white text-black">
         <Navbar />
 
-        {children}
+        <main className="flex-grow">
+          {children}
+        </main>
 
+        <Footer />
       </body>
-
     </html>
   );
 }
